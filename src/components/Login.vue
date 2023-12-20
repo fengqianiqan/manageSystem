@@ -2,7 +2,7 @@
   <div class="Login">
     <el-card class="box-card">
       <div slot="header" class="clearfix">
-        <span>后台管理系统</span>
+        <span>员工基本信息管理系统</span>
       </div>
       <el-form :model="ruleForm"  ref="ruleForm" label-width="80px" >
         <el-form-item label="用户名"

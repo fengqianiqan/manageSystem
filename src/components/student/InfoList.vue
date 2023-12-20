@@ -21,13 +21,12 @@
       <el-table-column prop="name" label="姓名" align="center"  ></el-table-column>
       <el-table-column prop="sex" label="性别" align="center" ></el-table-column>
       <el-table-column prop="age" label="年龄" align="center" ></el-table-column>
-      <el-table-column prop="num" label="学号" align="center" ></el-table-column>
+      <el-table-column prop="num" label="工号" align="center" ></el-table-column>
       <el-table-column prop="bor" label="出生日期" align="center" ></el-table-column>
       <el-table-column prop="ide" label="身份证号" align="center" ></el-table-column>
-      <el-table-column prop="pp" label="父亲姓名" align="center" ></el-table-column>
-      <el-table-column prop="mm" label="母亲姓名" align="center"  ></el-table-column>
-      <el-table-column prop="adr" label="家庭住址" align="center"  ></el-table-column>
-      <el-table-column prop="time" label="入校时间" align="center"  ></el-table-column>
+      <el-table-column prop="adr" label="出差地址" align="center"  ></el-table-column>
+      <el-table-column prop="pro" label="持有项目" align="center"  ></el-table-column>
+      <el-table-column prop="time" label="入职时间" align="center"  ></el-table-column>
       <el-table-column prop="pho" label="联系方式" align="center"  ></el-table-column>
       <el-table-column label="操作" align="center"  width="180px">
         <template slot-scope="scope">
@@ -39,7 +38,7 @@
     <!-- 分页-->
     <Page :total="total" :url="url"></Page>
     <!--  新增信息嵌套表单-->
-    <el-dialog :title="state ? '新增学生信息' : '修改学生信息'" :visible.sync="dialogFormVisible" width="400px">
+    <el-dialog :title="state ? '新增员工信息' : '修改员工信息'" :visible.sync="dialogFormVisible" width="400px">
       <el-form :model="form" :rules="rules" ref="form">
         <el-form-item label="姓名" :label-width="formLabelWidth" prop="name">
           <el-input v-model="form.name" autocomplete="off" size="mini"></el-input>
@@ -51,7 +50,7 @@
         <el-form-item label="年龄" :label-width="formLabelWidth" prop="age">
           <el-input v-model.number="form.age" autocomplete="off" size="mini"></el-input>
         </el-form-item>
-        <el-form-item label="学号" :label-width="formLabelWidth" prop="num">
+        <el-form-item label="工号" :label-width="formLabelWidth" prop="num">
           <el-input v-model.number="form.num" autocomplete="off" size="mini"></el-input>
         </el-form-item>
         <el-form-item label="出生日期" :label-width="formLabelWidth" prop="bor">
@@ -60,16 +59,13 @@
         <el-form-item label="身份证号" :label-width="formLabelWidth" prop="ide">
           <el-input v-model="form.ide" autocomplete="off" size="mini"></el-input>
         </el-form-item>
-        <el-form-item label="父亲姓名" :label-width="formLabelWidth" prop="pp">
-          <el-input v-model="form.pp" autocomplete="off" size="mini"></el-input>
-        </el-form-item>
-        <el-form-item label="母亲姓名" :label-width="formLabelWidth" prop="mm">
-          <el-input v-model="form.mm" autocomplete="off" size="mini"></el-input>
-        </el-form-item>
-        <el-form-item label="家庭住址" :label-width="formLabelWidth" prop="adr">
+        <el-form-item label="出差地址" :label-width="formLabelWidth" prop="adr">
           <el-input v-model="form.adr" autocomplete="off" size="mini"></el-input>
         </el-form-item>
-        <el-form-item label="入校时间" :label-width="formLabelWidth" prop="time">
+        <el-form-item label="持有项目" :label-width="formLabelWidth" prop="pro">
+          <el-input v-model="form.pro" autocomplete="off" size="mini"></el-input>
+        </el-form-item>
+        <el-form-item label="入职时间" :label-width="formLabelWidth" prop="time">
           <el-input v-model="form.time" autocomplete="off" size="mini"></el-input>
         </el-form-item>
         <el-form-item label="联系方式" :label-width="formLabelWidth" prop="pho">
@@ -94,7 +90,7 @@ export default {
   },
   data () {
     return {
-      url: '/students',
+      url: '/studentss',
       formLabelWidth: '80px',
       dialogFormVisible: false,
       state: true,
@@ -105,9 +101,8 @@ export default {
         num: '',
         bor: '',
         ide: '',
-        pp: '',
-        mm: '',
         adr: '',
+        pro: '',
         time: '',
         pho: ''
       },
@@ -116,7 +111,8 @@ export default {
         sex: [{required: true, message: '请选择性别'}],
         age: [{required: true, message: '请输入年龄'},
           {type: 'number', message: '年龄必须是数字'}],
-        adr: [{required: true, message: '请输入地址'}],
+        adr: [{required: true, message: '请输入出差地址'}],
+        pro: [{required: true, message: '请输入持有项目'}],
         pho: [{required: true, message: '请输入联系方式'},
           {type: 'number', message: '联系方式必须是数字'}]
       },
@@ -130,7 +126,7 @@ export default {
     }
   },
   created () {
-    getData(this, '/students')
+    getData(this, '/studentss')
     // this.getCount()
   },
   methods: {
@@ -141,7 +137,7 @@ export default {
       this.form = {...row}
     },
     dele (row) {
-      remove(this, row, '/students')
+      remove(this, row, '/studentss')
     },
     addStu () {
       this.state = true
@@ -149,7 +145,7 @@ export default {
     },
     findStu () {
       // console.log(this.formInline)
-      this.service.get('/students', {
+      this.service.get('/studentss', {
         params: this.formInline
       })
         .then(res => {
@@ -163,15 +159,15 @@ export default {
         })
     },
     reset () {
-      getData(this, '/students')
+      getData(this, '/studentss')
     },
     sure (form) {
       this.$refs[form].validate((valid) => {
         if (valid) {
           if (this.state) {
-            changeInfo(this, 'post', '/students', '新增数据成功', form, getData)
+            changeInfo(this, 'post', '/studentss', '新增数据成功', form, getData)
           } else {
-            changeInfo(this, 'patch', '/students', '修改数据成功', form, getData)
+            changeInfo(this, 'patch', '/studentss', '修改数据成功', form, getData)
           }
         } else {
           console.error(this.form)

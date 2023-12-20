@@ -10,8 +10,8 @@ export default {
   name: 'MapThree',
   mounted () {
     var myChart = this.$echarts.init(document.getElementById('main'))
-    var name_title = '中国人民大学2017年各省市计划录取人数'
-    var subname = '数据爬取自千栀网\n，\n上海、浙江无文理科录取人数'
+    var name_title = '出差情况'
+    var subname = '出差地点及人数（包括人数占比）'
     var nameColor = ' rgb(55, 75, 113)'
     var name_fontFamily = '等线'
     var subname_fontSize = 15

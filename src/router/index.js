@@ -24,20 +24,20 @@ export default new Router({
     },
     {
       path: '/home',
-      name: '学生管理',
+      name: '员工管理',
       iconClass: 'fa fa-users',
       redirect: '/home/student',
       component: () => import('@/components/Home'),
       children: [
         {
           path: '/home/student',
-          name: '学生列表',
+          name: '员工列表',
           iconClass: 'fa fa-list',
           component: () => import('@/components/student/StudentList')
         },
         {
           path: '/home/work',
-          name: '作业列表',
+          name: '项目列表',
           iconClass: 'fa fa-list-ul',
           component: () => import('@/components/student/WorkList')
         },
@@ -57,7 +57,7 @@ export default new Router({
     },
     {
       path: '/home',
-      name: '数据分析',
+      name: '统计分析',
       iconClass: 'fa fa-bar-chart',
       component: () => import('@/components/Home'),
       children: [
@@ -68,20 +68,8 @@ export default new Router({
           component: () => import('@/components/dataAnalysis/DataOverView')
         },
         {
-          path: '/home/mapdata',
-          name: '地图概览',
-          iconClass: 'fa fa-map-marker',
-          component: () => import('@/components/dataAnalysis/MapData')
-        },
-        {
-          path: '/home/maptwo',
-          name: '出行地图',
-          iconClass: 'fa fa-map-o',
-          component: () => import('@/components/dataAnalysis/MapTwo')
-        },
-        {
           path: '/home/mapthree',
-          name: '分数地图',
+          name: '出差情况',
           iconClass: 'fa fa-map-pin',
           component: () => import('@/components/dataAnalysis/MapThree')
         }

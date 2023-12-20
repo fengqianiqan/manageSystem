@@ -24,69 +24,69 @@ export default {
     var myChart = this.$echarts.init(document.getElementById('main1'))
     myChart.setOption({
       title: {
-        text: '班级'
+        text: '项目完成率'
       },
       tooltip: {},
       xAxis: {
-        data: ['一班', '二班', '三班', '四班', '五班', '六班']
+        data: ['项目一', '项目二', '项目三', '项目四', '项目五', '项目六']
       },
       yAxis: {},
       series: [{
-        name: '人数',
+        name: '百分占比（%）',
         type: 'bar',
-        data: [45, 43, 46, 48, 52, 47]
+        data: [79, 43, 68, 48, 80, 90]
       }]
     })
 
     var myChart1 = this.$echarts.init(document.getElementById('main2'))
     let option = {
       title: {
-        text: '数据'
+        text: '部门月度业绩折线图'
       },
       tooltip: {
         trigger: 'axis'
       },
       legend: {
-        data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+        data: ['A部门', 'B部门', 'C部门', 'D项目', 'E部门']
       },
       xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月','十二月']
       },
       yAxis: {
         type: 'value'
       },
       series: [
         {
-          name: '邮件营销',
+          name: 'A部门',
           type: 'line',
           stack: '总量',
-          data: [120, 132, 134, 90, 230, 210]
+          data: [3625, 4958, 2610, 5165, 4956, 6169, 9443, 5800, 6559, 5447, 3539, 3616]
         },
         {
-          name: '联盟广告',
+          name: 'B部门',
           type: 'line',
           stack: '总量',
-          data: [220, 182, 191, 234, 290, 310]
+          data: [2563, 7299, 2280, 3785, 9454, 3627, 3870, 4971, 7851, 9204, 5783, 9385]
         },
         {
-          name: '视频广告',
+          name: 'C部门',
           type: 'line',
           stack: '总量',
-          data: [150, 233, 201, 154, 190, 410]
+          data: [3925, 4558, 5152, 5133, 2088, 2779, 4468, 2785, 2703, 2792, 4968, 7718]
         },
         {
-          name: '直接访问',
+          name: 'D项目',
           type: 'line',
           stack: '总量',
-          data: [320, 332, 302, 334, 390, 320]
+          data: [3689, 6320, 3824, 7408, 5880, 5113, 7132, 8185, 9206, 9932, 6166, 9417]
         },
         {
-          name: '搜索引擎',
+          name: 'E部门',
           type: 'line',
           stack: '总量',
-          data: [820, 932, 901, 888, 1002, 1320]
+          data: [3600, 5462, 4100, 6505, 5920, 6500, 7980, 8907, 8400, 9200, 6522, 9062]
         }
       ]
     }
