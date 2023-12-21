@@ -1,6 +1,7 @@
 # stmanag
 
 > 员工管理系统
+> CSDN项目开源：http://t.csdnimg.cn/TJ8Bq
 
 ##### 运行vue项目：
 
