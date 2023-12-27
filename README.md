@@ -5,7 +5,7 @@
 
 ##### 运行vue项目：
 
-环境配置等可以参见[VUE学生管理项目：课程小结_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1TW4y1y7oa/?p=52&spm_id_from=pageDriver&vd_source=918d41e8ba793e0783a93d05f5e58d88)
+环境配置：vue2,nodejs:10.24.0
 
 ###### vue实战__vue2.0
 
