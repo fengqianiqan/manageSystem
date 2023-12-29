@@ -42,7 +42,7 @@
 
     ```
     //回调函数，控制台如何打印获取的信息
-    .thid(res=>{
+    .thisss(res=>{
     	console.log(res)
     })
     .catch(err=>){
